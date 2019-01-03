@@ -168,10 +168,26 @@ function textField() {
 	textAlign(RIGHT);
 	text(terrain.getDisplaySpeed(), width - 20, 40);
 }
-
+/*
 function mousePressed() {
 	ball.jump();
-}
+}*/
 function keyPressed() {
 	ball.jump();
 }
+
+var released = true;
+
+function mouseReleased(){
+	released = true;
+   return false;
+}
+
+function mousePressed(){
+	if(!released){
+		return;
+	}
+	released = false;
+	ball.jump();
+}
+

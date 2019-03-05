@@ -1,7 +1,9 @@
 var framerate = 60;
+var audioContext = new AudioContext();
 
 function setup() {
-	cnv = createCanvas(700, 550);
+   var w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+	cnv = createCanvas(Math.min(700, w), 550);
 	cnv.parent("col1");
 	resetGame();
 	frameRate(framerate);
@@ -33,6 +35,8 @@ function draw() {
 	game.finished();
 }
 function resetGame() {
+   getAudioContext().resume()
+   document.getElementById("crash").load();
 	terrain = new Terrain;
 	ball = new Ball();
 	rocks = [];

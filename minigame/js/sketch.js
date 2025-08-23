@@ -34,6 +34,7 @@ function draw() {
 	gravity();
 	game.finished();
 }
+
 function resetGame() {
    getAudioContext().resume()
    document.getElementById("crash").load();
@@ -46,6 +47,7 @@ function resetGame() {
 	game = new Game;
 	counter = new Counter();
 }
+
 function Counter() {
 	var second = framerate;
 	var deciSeconds = 0;	//resets at 1 min
@@ -83,6 +85,7 @@ function gravity() {
 		flowers[i].getPos()[1] += velocity[1];
 	}
 }
+
 function Game() {
 	var over = false;
 	var level = 1;
